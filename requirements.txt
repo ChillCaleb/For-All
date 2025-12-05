@@ -1,0 +1,7 @@
+supabase>=2.0.0
+python-dotenv>=1.0.0
+streamlit>=1.32.0
+
+# Optional: only if you want map support in Streamlit
+# folium>=0.15.0
+# streamlit-folium>=0.15.0
