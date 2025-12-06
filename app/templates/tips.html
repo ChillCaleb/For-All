@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page">
+  <h2 class="page-title">Community Tips</h2>
+
+  <div class="tips-list">
+    {% for post in posts %}
+    <article class="tip-card">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

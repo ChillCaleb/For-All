@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="phone-frame">
+  <div class="phone-screen">
+    <div class="hero">
+      <h1>FOR ALL</h1>
+      <p class="tagline">Connecting Communities to Resources</p>
+    </div>
+
+    <div class="category-buttons">
+      <a class="category-btn housing" href="{{ url_for('category_page', category='housing') }}">
+        🏠 Housing
+      </a>
+      <a class="category-btn food" href="{{ url_for('category_page', category='food') }}">
+        🍽 Food
+      </a>
+      <a class="category-btn clothing" href="{{ url_for('category_page', category='clothing') }}">
+        👕 Clothing
+      </a>
+    </div>
+
+    <form class="need-form" method="post">
+      <label for="need_description">Not sure where to start?</label>
+      <textarea
+        id="need_description"
+        name="need_description"
+        rows="3"
+        placeholder="Describe what you need today (e.g., 'I need a safe place to sleep tonight')."
+      ></textarea>
+      <button type="submit">Get Recommendation</button>
+    </form>
+
+    {% if recommendation %}
+    <div class="recommendation-card">
+      <h3>Suggested resource</h3>
+      <p class="rec-name">{{ recommendation.name }}</p>
+      <p>{{ recommendation.description }}</p>
+      <p>{{ recommendation.address }}</p>
+      <p>{{ recommendation.phone }}</p>
+    </div>
+    {% endif %}
+
+    <p class="city-label">📍 Baltimore, MD</p>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page">
+  <h2 class="page-title">Analytics (Prototype)</h2>
+
+  <p>Total resources in directory: <strong>{{ stats.total_resources }}</strong></p>
+
+  <h3 class="subheading">Resources by category</h3>
+  <ul>
+    {% for cat, count in stats.by_category.items() %}
+    <li>{{ cat|capitalize }}: {{ count }}</li>
+    {% endfor %}
+  </ul>
+
+  <p class="note">
+    This is a prototype dashboard. In the full system, these counts will come from Supabase
+    and include real usage metrics such as searches, clicks, and saved resources.
+  </p>
+</section>
+{% endblock %}

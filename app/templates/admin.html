@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page">
+  <h2 class="page-title">NGO Portal</h2>
+  <p>Add or update resources available to the community.</p>
+
+  {% if created %}
+  <div class="notice success">
+    Resource "{{ created.name }}" added successfully.
+  </div>
+  {% endif %}
+
+  <form class="admin-form" method="post">
+    <label>
+      Name
+      <input type="text" name="name" required />
+    </label>
+
+    <label>
+      Category
+      <select name="category" required>
+        <option value="housing">Housing</option>
+        <option value="food">Food</option>
+        <option value="clothing">Clothing</option>
+      </select>
+    </label>
+
+    <label>
+      Neighborhood
+      <select name="neighborhood" required>
+        {% for n in neighborhoods %}
+        <option value="{{ n }}">{{ n }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>
+      Address
+      <input type="text" name="address" />
+    </label>
+
+    <label>
+      Phone
+      <input type="text" name="phone" />
+    </label>
+
+    <label>
+      Description
+      <textarea name="description" rows="3"></textarea>
+    </label>
+
+    <button type="submit">Save Resource</button>
+  </form>
+
+  <h3 class="subheading">Current resources</h3>
+  <div class="resource-list">
+    {% for r in resources %}
+    <article class="resource-card">
+      <h4>{{ r.name }}</h4>
+      <p class="resource-meta">{{ r.neighborhood }} • {{ r.category|capitalize }}</p>
+      <p>{{ r.description }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+

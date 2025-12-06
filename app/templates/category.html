@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page">
+  <h2 class="page-title">{{ category|capitalize }} resources</h2>
+
+  <form class="filters" method="get">
+    <label>
+      Neighborhood:
+      <select name="neighborhood">
+        <option value="">All</option>
+        {% for n in neighborhoods %}
+        <option value="{{ n }}" {% if n == selected_neighborhood %}selected{% endif %}>
+          {{ n }}
+        </option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>
+      Keyword:
+      <input type="text" name="q" value="{{ query }}" placeholder="Search by name or description" />
+    </label>
+
+    <button type="submit">Apply</button>
+  </form>
+
+  {% if resources %}
+  <div class="resource-list">
+    {% for r in resources %}
+    <article class="resource-card">
+      <h3>{{ r.name }}</h3>
+      <p class="resource-meta">{{ r.neighborhood }} • {{ r.category|capitalize }}</p>
+      <p>{{ r.description }}</p>
+      <p>{{ r.address }}</p>
+      <p>{{ r.phone }}</p>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>No resources found for this filter yet.</p>
+  {% endif %}
+</section>
+{% endblock %}
