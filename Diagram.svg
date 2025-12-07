@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" font-family="Arial, sans-serif">
+  <!-- White background -->
+  <rect x="0" y="0" width="900" height="600" fill="white"/>
+  
+  <defs>
+    <!-- Arrow head for associations -->
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L9,3 L0,6 z" fill="black" stroke="black"/>
+    </marker>
+    
+    <!-- Filled diamond for composition -->
+    <marker id="diamond-filled" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,6 L6,0 L12,6 L6,12 z" fill="black" stroke="black"/>
+    </marker>
+    
+    <!-- Hollow triangle for generalization (UML inheritance) -->
+    <marker id="triangle" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="white" stroke="black" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- Top row: User (left) -->
+  <g id="User">
+    <rect x="50" y="30" width="160" height="90" fill="white" stroke="black" stroke-width="1.5"/>
+    <line x1="50" y1="55" x2="210" y2="55" stroke="black" stroke-width="1"/>
+    <text x="130" y="48" font-size="14" text-anchor="middle" font-weight="bold" fill="black">User</text>
+    <text x="60" y="75" font-size="12" fill="black">- user_id</text>
+    <text x="60" y="90" font-size="12" fill="black">- name</text>
+    <text x="60" y="105" font-size="12" fill="black">- email</text>
+  </g>
+
+  <!-- Top row: Category (center) -->
+  <g id="Category">
+    <rect x="350" y="30" width="160" height="70" fill="white" stroke="black" stroke-width="1.5"/>
+    <line x1="350" y1="55" x2="510" y2="55" stroke="black" stroke-width="1"/>
+    <text x="430" y="48" font-size="14" text-anchor="middle" font-weight="bold" fill="black">Category</text>
+    <text x="360" y="75" font-size="12" fill="black">- category_id</text>
+    <text x="360" y="90" font-size="12" fill="black">- name</text>
+  </g>
+
+  <!-- Top row: Neighborhood (right) -->
+  <g id="Neighborhood">
+    <rect x="650" y="30" width="180" height="85" fill="white" stroke="black" stroke-width="1.5"/>
+    <line x1="650" y1="55" x2="830" y2="55" stroke="black" stroke-width="1"/>
+    <text x="740" y="48" font-size="14" text-anchor="middle" font-weight="bold" fill="black">Neighborhood</text>
+    <text x="660" y="75" font-size="12" fill="black">- neighborhood_id</text>
+    <text x="660" y="90" font-size="12" fill="black">- name</text>
+    <text x="660" y="105" font-size="12" fill="black">- zipcode</text>
+  </g>
+
+  <!-- Middle row: Resource (center) -->
+  <g id="Resource">
+    <rect x="400" y="200" width="200" height="130" fill="white" stroke="black" stroke-width="1.5"/>
+    <line x1="400" y1="225" x2="600" y2="225" stroke="black" stroke-width="1"/>
+    <text x="500" y="218" font-size="14" text-anchor="middle" font-weight="bold" fill="black">Resource</text>
+    <text x="410" y="245" font-size="12" fill="black">- resource_id</text>
+    <text x="410" y="260" font-size="12" fill="black">- name</text>
+    <text x="410" y="275" font-size="12" fill="black">- description</text>
+    <text x="410" y="290" font-size="12" fill="black">- address</text>
+    <text x="410" y="305" font-size="12" fill="black">- phone</text>
+    <text x="410" y="320" font-size="12" fill="black">- category</text>
+  </g>
+
+  <!-- Bottom row: GovernmentResource (bottom-left) -->
+  <g id="GovernmentResource">
+    <rect x="280" y="400" width="200" height="60" fill="white" stroke="black" stroke-width="1.5"/>
+    <line x1="280" y1="425" x2="480" y2="425" stroke="black" stroke-width="1"/>
+    <text x="380" y="418" font-size="14" text-anchor="middle" font-weight="bold" fill="black">GovernmentResource</text>
+    <text x="290" y="445" font-size="12" fill="black">+ gov_program_id</text>
+  </g>
+
+  <!-- Bottom row: PrivateResource (bottom-right) -->
+  <g id="PrivateResource">
+    <rect x="520" y="400" width="200" height="60" fill="white" stroke="black" stroke-width="1.5"/>
+    <line x1="520" y1="425" x2="720" y2="425" stroke="black" stroke-width="1"/>
+    <text x="620" y="418" font-size="14" text-anchor="middle" font-weight="bold" fill="black">PrivateResource</text>
+    <text x="530" y="445" font-size="12" fill="black">+ organization_name</text>
+  </g>
+
+  <!-- UserProfile under User -->
+  <g id="UserProfile">
+    <rect x="50" y="180" width="180" height="80" fill="white" stroke="black" stroke-width="1.5"/>
+    <line x1="50" y1="205" x2="230" y2="205" stroke="black" stroke-width="1"/>
+    <text x="140" y="198" font-size="14" text-anchor="middle" font-weight="bold" fill="black">UserProfile</text>
+    <text x="60" y="225" font-size="12" fill="black">- profile_id</text>
+    <text x="60" y="240" font-size="12" fill="black">- preferences</text>
+    <text x="60" y="255" font-size="12" fill="black">- last_search</text>
+  </g>
+
+  <!-- Relationships -->
+  
+  <!-- Composition: User -> UserProfile (1..1) - filled diamond at User side -->
+  <line x1="130" y1="120" x2="140" y2="180" stroke="black" stroke-width="1.5" marker-end="url(#diamond-filled)"/>
+  <text x="100" y="150" font-size="11" fill="black">1..1</text>
+
+  <!-- Association: User -> Resource (User views many Resources) -->
+  <line x1="210" y1="75" x2="400" y2="260" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="280" y="150" font-size="11" fill="black">views</text>
+  <text x="280" y="165" font-size="11" fill="black">1..* Resources</text>
+
+  <!-- Association: Category -> Resource (1 Category 1..* Resources) -->
+  <line x1="430" y1="100" x2="500" y2="200" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="440" y="140" font-size="11" fill="black">1 Category</text>
+  <text x="440" y="155" font-size="11" fill="black">1..* Resources</text>
+
+  <!-- Association: Neighborhood -> Resource (serves 1..* Resources) -->
+  <line x1="740" y1="115" x2="600" y2="230" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="680" y="160" font-size="11" fill="black">serves</text>
+  <text x="680" y="175" font-size="11" fill="black">1..* Resources</text>
+
+  <!-- Generalization: Resource -> GovernmentResource -->
+  <line x1="500" y1="330" x2="380" y2="400" stroke="black" stroke-width="1.2" marker-end="url(#triangle)"/>
+  
+  <!-- Generalization: Resource -> PrivateResource -->
+  <line x1="500" y1="330" x2="620" y2="400" stroke="black" stroke-width="1.2" marker-end="url(#triangle)"/>
+
+  <!-- Legend at bottom -->
+  <text x="50" y="550" font-size="11" fill="black">
+    Legend: Generalization: Resource → GovernmentResource, PrivateResource. Composition: User → UserProfile (1..1). Associations: User–Resource, Category–Resource, Neighborhood–Resource.
+  </text>
+</svg>

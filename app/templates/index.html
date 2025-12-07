@@ -8,13 +8,13 @@
     </div>
 
     <div class="category-buttons">
-      <a class="category-btn housing" href="{{ url_for('category_page', category='housing') }}">
+      <a class="category-btn housing" href="{{ url_for('category_page', category='housing') }}" data-category="housing">
         🏠 Housing
       </a>
-      <a class="category-btn food" href="{{ url_for('category_page', category='food') }}">
+      <a class="category-btn food" href="{{ url_for('category_page', category='food') }}" data-category="food">
         🍽 Food
       </a>
-      <a class="category-btn clothing" href="{{ url_for('category_page', category='clothing') }}">
+      <a class="category-btn clothing" href="{{ url_for('category_page', category='clothing') }}" data-category="clothing">
         👕 Clothing
       </a>
     </div>
@@ -43,4 +43,87 @@
     <p class="city-label">📍 Baltimore, MD</p>
   </div>
 </section>
+
+<!-- Resources list section -->
+<section id="resources-section" style="display: none; margin-top: 2rem;">
+  <div class="phone-screen">
+    <h2 id="resources-title" style="margin-top: 0; margin-bottom: 1rem; text-align: center; color: #0f172a;"></h2>
+    <div id="resources-list"></div>
+  </div>
+</section>
+
+<script>
+  // Handle category button clicks
+  document.querySelectorAll('.category-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const category = this.getAttribute('data-category');
+      fetchResources(category);
+    });
+  });
+
+  // Fetch resources from API
+  async function fetchResources(category) {
+    const resourcesSection = document.getElementById('resources-section');
+    const resourcesList = document.getElementById('resources-list');
+    const resourcesTitle = document.getElementById('resources-title');
+    
+    // Show loading state
+    resourcesList.innerHTML = '<p style="text-align: center; color: #0f172a;">Loading resources...</p>';
+    resourcesTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1) + ' Resources';
+    resourcesSection.style.display = 'block';
+    
+    try {
+      const response = await fetch(`/api/resources?category=${category}&city=Baltimore`);
+      const resources = await response.json();
+      
+      if (resources.length === 0) {
+        resourcesList.innerHTML = '<p style="text-align: center; color: #0f172a;">No resources found.</p>';
+        return;
+      }
+      
+      // Render resources
+      resourcesList.innerHTML = resources.map(resource => `
+        <article class="resource-card-api" style="
+          background: white;
+          border-radius: 0.5rem;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          color: #0f172a;
+        ">
+          <h3 style="margin-top: 0; margin-bottom: 0.5rem; color: #0f172a;">${escapeHtml(resource.name)}</h3>
+          <p style="margin: 0.25rem 0; font-size: 0.9rem; opacity: 0.8;">
+            <strong>Category:</strong> ${escapeHtml(resource.category)}
+          </p>
+          <p style="margin: 0.25rem 0; font-size: 0.9rem;">
+            <strong>Address:</strong> ${escapeHtml(resource.address)}, ${escapeHtml(resource.city)}, ${escapeHtml(resource.state)}
+          </p>
+          ${resource.phone ? `<p style="margin: 0.25rem 0; font-size: 0.9rem;"><strong>Phone:</strong> ${escapeHtml(resource.phone)}</p>` : ''}
+          ${resource.website ? `<p style="margin: 0.25rem 0; font-size: 0.9rem;"><strong>Website:</strong> <a href="${escapeHtml(resource.website)}" target="_blank" rel="noopener" style="color: #6366f1;">${escapeHtml(resource.website)}</a></p>` : ''}
+          ${resource.notes ? `<p style="margin: 0.5rem 0 0 0; font-size: 0.85rem; opacity: 0.7; font-style: italic;">${escapeHtml(resource.notes)}</p>` : ''}
+        </article>
+      `).join('');
+      
+      // Scroll to resources section
+      resourcesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (error) {
+      console.error('Error fetching resources:', error);
+      resourcesList.innerHTML = '<p style="text-align: center; color: #ef4444;">Error loading resources. Please try again.</p>';
+    }
+  }
+
+  // Helper function to escape HTML
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Handle recommendation form submission - also fetch resources
+  document.querySelector('.need-form')?.addEventListener('submit', function(e) {
+    // Let the form submit normally for server-side recommendation
+    // Optionally, we could also fetch resources here based on detected category
+  });
+</script>
 {% endblock %}

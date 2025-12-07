@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).parent.parent
 if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from app.backend.db import (
     list_resources,
     add_resource,
@@ -16,6 +16,7 @@ from app.backend.db import (
     recommend_resource,
     NEIGHBORHOODS,
 )
+from app.backend.seed_data import RESOURCES as SEED_RESOURCES
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -97,6 +98,34 @@ def admin():
 def analytics():
     stats = get_stats()
     return render_template("analytics.html", stats=stats)
+
+
+@app.route("/api/resources", methods=["GET"])
+def api_resources():
+    """
+    GET /api/resources
+    
+    Query parameters:
+    - category (optional): "housing" | "food" | "clothing"
+    - city (optional, default: "Baltimore"): Filter by city (case-insensitive)
+    
+    Returns JSON array of resource dictionaries.
+    """
+    category = request.args.get("category", "").lower().strip()
+    city = request.args.get("city", "Baltimore").strip()
+    
+    # Filter resources
+    filtered = []
+    for resource in SEED_RESOURCES:
+        # Filter by category if provided
+        if category and resource.category.lower() != category:
+            continue
+        # Filter by city (case-insensitive)
+        if resource.city.lower() != city.lower():
+            continue
+        filtered.append(resource.to_dict())
+    
+    return jsonify(filtered)
 
 
 if __name__ == "__main__":
