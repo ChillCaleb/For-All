@@ -1,20 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="page">
-  <h2 class="page-title">Analytics (Prototype)</h2>
+<div class="category-header">
+    <h1>Analytics</h1>
+    <p style="color: rgba(255, 255, 255, 0.9); font-size: 0.9375rem;">Resource directory statistics</p>
+</div>
 
-  <p>Total resources in directory: <strong>{{ stats.total_resources }}</strong></p>
+<div class="card">
+    <h3 style="margin-top: 0;">Total Resources</h3>
+    <p style="font-size: 2rem; font-weight: 700; color: #d1a12b; margin: 0.5rem 0;">{{ stats.total_resources }}</p>
+</div>
 
-  <h3 class="subheading">Resources by category</h3>
-  <ul>
-    {% for cat, count in stats.by_category.items() %}
-    <li>{{ cat|capitalize }}: {{ count }}</li>
-    {% endfor %}
-  </ul>
+<div class="card">
+    <h3 style="margin-top: 0;">Resources by Category</h3>
+    <ul style="list-style: none; padding: 0; margin: 0;">
+        {% for cat, count in stats.by_category.items() %}
+        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e5e5e5;">
+            <strong>{{ cat|capitalize }}:</strong> {{ count }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 
-  <p class="note">
-    This is a prototype dashboard. In the full system, these counts will come from Supabase
-    and include real usage metrics such as searches, clicks, and saved resources.
-  </p>
-</section>
+<div class="card">
+    <h3 style="margin-top: 0;">Resources by Neighborhood</h3>
+    <ul style="list-style: none; padding: 0; margin: 0;">
+        {% for neighborhood, count in stats.by_neighborhood.items() %}
+        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e5e5e5;">
+            <strong>{{ neighborhood }}:</strong> {{ count }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card" style="margin-top: 1.5rem; background: #f8f9fa; color: #666;">
+    <p style="margin: 0; font-size: 0.875rem; font-style: italic;">
+        This is a prototype dashboard. In the full system, these counts will come from Supabase
+        and include real usage metrics such as searches, clicks, and saved resources.
+    </p>
+</div>
 {% endblock %}

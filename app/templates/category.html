@@ -1,43 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="page">
-  <h2 class="page-title">{{ category|capitalize }} resources</h2>
+<div class="category-header">
+    <h1>{{ category|capitalize }} resources</h1>
+</div>
 
-  <form class="filters" method="get">
-    <label>
-      Neighborhood:
-      <select name="neighborhood">
-        <option value="">All</option>
+<form class="filters-row" method="get">
+    <select name="neighborhood" class="filter-select">
+        <option value="">All Neighborhoods</option>
         {% for n in neighborhoods %}
         <option value="{{ n }}" {% if n == selected_neighborhood %}selected{% endif %}>
-          {{ n }}
+            {{ n }}
         </option>
         {% endfor %}
-      </select>
-    </label>
+    </select>
+    
+    <input 
+        type="text" 
+        name="q" 
+        value="{{ query }}" 
+        placeholder="Search..." 
+        class="filter-input"
+    />
+    
+    <button type="submit" class="btn-primary" style="flex: 0 0 auto; padding: 0.75rem 1.5rem;">Search</button>
+</form>
 
-    <label>
-      Keyword:
-      <input type="text" name="q" value="{{ query }}" placeholder="Search by name or description" />
-    </label>
-
-    <button type="submit">Apply</button>
-  </form>
-
-  {% if resources %}
-  <div class="resource-list">
+{% if resources %}
+<div class="resource-list">
     {% for r in resources %}
     <article class="resource-card">
-      <h3>{{ r.name }}</h3>
-      <p class="resource-meta">{{ r.neighborhood }} • {{ r.category|capitalize }}</p>
-      <p>{{ r.description }}</p>
-      <p>{{ r.address }}</p>
-      <p>{{ r.phone }}</p>
+        <div class="star-rating">
+            <span class="star-icon">⭐</span>
+            <span class="star-icon">⭐</span>
+            <span class="star-icon">⭐</span>
+        </div>
+        <h3>{{ r.name }}</h3>
+        <p class="resource-meta">
+            <strong>Neighborhood:</strong> {{ r.neighborhood }}<br>
+            <strong>Category:</strong> {{ r.category|capitalize }}
+        </p>
+        <p class="resource-info">{{ r.description }}</p>
+        <p class="resource-info">
+            <strong>Address:</strong> {{ r.address }}<br>
+            {% if r.phone %}
+            <strong>Phone:</strong> <a href="tel:{{ r.phone }}">{{ r.phone }}</a>
+            {% endif %}
+        </p>
     </article>
     {% endfor %}
-  </div>
-  {% else %}
-  <p>No resources found for this filter yet.</p>
-  {% endif %}
-</section>
+</div>
+{% else %}
+<div class="card">
+    <p>No resources found for this filter yet.</p>
+</div>
+{% endif %}
+
+<div class="emergency-section">
+    <h3>Need emergency help right now?</h3>
+    <a href="tel:211" class="btn-211">Call 211</a>
+</div>
 {% endblock %}

@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="category-header">
+    <h1>Chat Assistant</h1>
+    <p style="color: rgba(255, 255, 255, 0.9); font-size: 0.9375rem;">Ask me anything about resources in Baltimore</p>
+</div>
+
+<div class="chatbot-container">
+    <div class="chatbot-messages" id="chatMessages">
+        <div class="message bot-message">
+            <div class="message-content">
+                <p>Hello! I'm here to help you find resources in Baltimore. You can ask me about housing, food, clothing, or other assistance services. How can I help you today?</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="chatbot-input-container">
+        <form id="chatForm" class="chatbot-form">
+            <input 
+                type="text" 
+                id="userInput" 
+                placeholder="Type your message here..." 
+                class="chatbot-input"
+                autocomplete="off"
+                required
+            />
+            <button type="submit" class="btn-primary chatbot-send-btn">Send</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const chatMessages = document.getElementById('chatMessages');
+    const chatForm = document.getElementById('chatForm');
+    const userInput = document.getElementById('userInput');
+    
+    function addMessage(content, isBot = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = isBot ? 'message bot-message' : 'message user-message';
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.innerHTML = `<p>${content}</p>`;
+        
+        messageDiv.appendChild(contentDiv);
+        chatMessages.appendChild(messageDiv);
+        
+        // Scroll to bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function addLoadingMessage() {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message bot-message';
+        messageDiv.id = 'loadingMessage';
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.innerHTML = '<p>Thinking...</p>';
+        
+        messageDiv.appendChild(contentDiv);
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        return messageDiv;
+    }
+    
+    function removeLoadingMessage() {
+        const loadingMsg = document.getElementById('loadingMessage');
+        if (loadingMsg) {
+            loadingMsg.remove();
+        }
+    }
+    
+    chatForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const message = userInput.value.trim();
+        if (!message) return;
+        
+        // Add user message
+        addMessage(message, false);
+        userInput.value = '';
+        
+        // Show loading
+        const loadingMsg = addLoadingMessage();
+        
+        try {
+            const response = await fetch('{{ url_for("chatbot") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message })
+            });
+            
+            const data = await response.json();
+            removeLoadingMessage();
+            
+            if (response.ok) {
+                addMessage(data.response, true);
+            } else {
+                addMessage('Sorry, I encountered an error. Please try again.', true);
+            }
+        } catch (error) {
+            removeLoadingMessage();
+            addMessage('Sorry, I couldn\'t connect to the server. Please try again later.', true);
+        }
+    });
+    
+    // Allow Enter key to send (but allow Shift+Enter for new line)
+    userInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            chatForm.dispatchEvent(new Event('submit'));
+        }
+    });
+</script>
+{% endblock %}
+

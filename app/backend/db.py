@@ -8,8 +8,121 @@ without needing a real database. You can swap this later
 for SQLite using the same function names.
 """
 
+import json
+import sqlite3
 from collections import Counter
+from pathlib import Path
 from typing import Optional
+from werkzeug.security import generate_password_hash, check_password_hash
+
+from app.backend.seed_data import RESOURCES as SEED_RESOURCES
+from app.backend.models import Resource
+
+# --- SQLite user database (for login/signup) ---
+
+BASE_DIR = Path(__file__).parent.parent.parent  # project root
+DB_FILE = BASE_DIR / "sql" / "forall.db"
+DATA_FILE = BASE_DIR / "data" / "baltimore_resources.json"
+
+_JSON_RESOURCES = None
+
+
+def load_json_resources():
+    """
+    Load manual Baltimore resources from data/baltimore_resources.json.
+    Returns a list of dicts with the same shape as RESOURCES entries.
+    If the file is missing or invalid, returns an empty list.
+    """
+    global _JSON_RESOURCES
+    if _JSON_RESOURCES is not None:
+        return _JSON_RESOURCES
+
+    if not DATA_FILE.exists():
+        _JSON_RESOURCES = []
+        return _JSON_RESOURCES
+
+    try:
+        data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        _JSON_RESOURCES = []
+        return _JSON_RESOURCES
+
+    normalized = []
+    for item in data:
+        normalized.append(
+            {
+                "id": item.get("id"),
+                "name": item.get("name", "").strip(),
+                "category": item.get("category", "").strip(),
+                "neighborhood": item.get("city", "Baltimore, MD"),
+                "address": item.get("address", "").strip(),
+                "phone": item.get("phone", "").strip(),
+                "tags": [item.get("category", "").strip(), "baltimore"],
+                "description": item.get("description", "").strip(),
+                "website": item.get("website", "").strip(),
+            }
+        )
+    _JSON_RESOURCES = normalized
+    return _JSON_RESOURCES
+
+
+def get_conn():
+    DB_FILE.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(DB_FILE)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def init_user_table():
+    """Ensure the users table exists."""
+    conn = get_conn()
+    with conn:
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT UNIQUE NOT NULL,
+                password_hash TEXT NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+            """
+        )
+    conn.close()
+
+
+# Initialize table on import
+init_user_table()
+
+
+def create_user(email: str, password: str):
+    """Create a new user with a hashed password."""
+    email = email.strip().lower()
+    password_hash = generate_password_hash(password)
+    conn = get_conn()
+    with conn:
+        conn.execute(
+            "INSERT INTO users (email, password_hash) VALUES (?, ?)",
+            (email, password_hash),
+        )
+    conn.close()
+
+
+def get_user(email: str):
+    """Return SQLite row for user or None."""
+    email = email.strip().lower()
+    conn = get_conn()
+    cur = conn.execute("SELECT * FROM users WHERE email = ?", (email,))
+    row = cur.fetchone()
+    conn.close()
+    return row
+
+
+def verify_user(email: str, password: str) -> bool:
+    row = get_user(email)
+    if not row:
+        return False
+    return check_password_hash(row["password_hash"], password)
+
 
 # --- Fake data for demo / prototype ---
 
@@ -52,6 +165,26 @@ RESOURCES = [
         "description": "Provides free seasonal clothing for all ages."
     },
 ]
+
+# Merge real Baltimore organizations from seed_data into the generic RESOURCES list.
+# This lets the UI show all organizations even if the /api/resources endpoint is not used.
+for seed in SEED_RESOURCES:
+    if isinstance(seed, Resource):
+        RESOURCES.append(
+            {
+                "id": seed.id + 1000,  # offset to avoid id collisions
+                "name": seed.name,
+                "category": seed.category,
+                "neighborhood": "Baltimore, MD",
+                "address": f"{seed.address}, {seed.city}, {seed.state}",
+                "phone": seed.phone or "",
+                "tags": [seed.category, "community", "support"],
+                "description": seed.notes or "",
+            }
+        )
+
+# Merge manual Baltimore resources (from JSON file) into the RESOURCES list.
+RESOURCES.extend(load_json_resources())
 
 
 # ---------- Core helper functions used by app.py ----------

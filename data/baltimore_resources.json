@@ -1,0 +1,653 @@
+[
+  {
+    "id": 1001,
+    "name": "Weinberg Housing & Resource Center",
+    "category": "housing",
+    "address": "620 Fallsway, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-396-4884",
+    "website": "https://www.catholiccharities-md.org",
+    "description": "Emergency shelter and housing assistance for men, women, and families. Provides case management, meals, and support services."
+  },
+  {
+    "id": 1002,
+    "name": "Sarah's Hope Shelter",
+    "category": "housing",
+    "address": "1114 Mount Street, Baltimore, MD 21217",
+    "city": "Baltimore, MD",
+    "phone": "410-467-9000",
+    "website": "https://www.catholiccharities-md.org",
+    "description": "Emergency shelter for families experiencing homelessness. Offers case management and housing placement assistance."
+  },
+  {
+    "id": 1003,
+    "name": "Project PLASE",
+    "category": "housing",
+    "address": "3549-3601 Old Frederick Rd, Baltimore, MD 21229",
+    "city": "Baltimore, MD",
+    "phone": "410-837-1400",
+    "website": "https://www.projectplase.org",
+    "description": "Transitional housing and support services for individuals and families. Provides case management and life skills training."
+  },
+  {
+    "id": 1004,
+    "name": "Helping Up Mission",
+    "category": "housing",
+    "address": "1029 E Baltimore St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-675-7500",
+    "website": "https://www.helpingupmission.org",
+    "description": "Emergency shelter and recovery services for men. Offers addiction recovery programs, job training, and housing assistance."
+  },
+  {
+    "id": 1005,
+    "name": "My Sister's Place Women's Center",
+    "category": "housing",
+    "address": "17 W Franklin St, Baltimore, MD 21201",
+    "city": "Baltimore, MD",
+    "phone": "410-727-3528",
+    "website": "https://www.catholiccharities-md.org",
+    "description": "Emergency shelter and support services for women experiencing homelessness. Provides meals, case management, and referrals."
+  },
+  {
+    "id": 1006,
+    "name": "House of Ruth Maryland",
+    "category": "housing",
+    "address": "2201 Argonne Dr, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-889-0840",
+    "website": "https://www.hruth.org",
+    "description": "Domestic violence shelter and support services. Provides emergency shelter, counseling, legal assistance, and housing programs."
+  },
+  {
+    "id": 1007,
+    "name": "Baltimore Rescue Mission",
+    "category": "housing",
+    "address": "4 N Central Ave, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-563-3443",
+    "website": "",
+    "description": "Emergency shelter for men. Provides meals, clothing, and case management services."
+  },
+  {
+    "id": 1008,
+    "name": "Door of Hope",
+    "category": "housing",
+    "address": "1201 W Pratt St, Baltimore, MD 21223",
+    "city": "Baltimore, MD",
+    "phone": "410-233-7000",
+    "website": "https://www.doorofhopebaltimore.org",
+    "description": "Transitional housing and support services for women and children. Offers life skills training and case management."
+  },
+  {
+    "id": 1009,
+    "name": "St. Vincent de Paul of Baltimore",
+    "category": "housing",
+    "address": "2305 N Charles St, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-576-3990",
+    "website": "https://www.vincentbaltimore.org",
+    "description": "Housing assistance and support services. Provides rental assistance, eviction prevention, and case management."
+  },
+  {
+    "id": 1010,
+    "name": "Baltimore City Housing Authority",
+    "category": "housing",
+    "address": "417 E Fayette St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-396-3232",
+    "website": "https://www.habc.org",
+    "description": "Public housing and Section 8 voucher programs. Provides affordable housing options and housing assistance."
+  },
+  {
+    "id": 1011,
+    "name": "Health Care for the Homeless",
+    "category": "housing",
+    "address": "421 Fallsway, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-837-5533",
+    "website": "https://www.hchmd.org",
+    "description": "Health care and housing assistance for people experiencing homelessness. Provides medical care, case management, and housing support."
+  },
+  {
+    "id": 1012,
+    "name": "Bea Gaddy Family Center",
+    "category": "housing",
+    "address": "425 N Chester St, Baltimore, MD 21231",
+    "city": "Baltimore, MD",
+    "phone": "410-563-2749",
+    "website": "https://www.beagaddy.org",
+    "description": "Emergency shelter for families and food assistance. Provides temporary housing, meals, and support services."
+  },
+  {
+    "id": 1013,
+    "name": "YWCA of Greater Baltimore",
+    "category": "housing",
+    "address": "128 W Franklin St, Baltimore, MD 21201",
+    "city": "Baltimore, MD",
+    "phone": "410-727-0085",
+    "website": "https://www.ywcagb.org",
+    "description": "Domestic violence shelter and support services. Provides emergency housing, counseling, and advocacy."
+  },
+  {
+    "id": 1014,
+    "name": "Maryland Center for Veterans Education and Training",
+    "category": "housing",
+    "address": "301 N High St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-576-9626",
+    "website": "https://www.mcvet.org",
+    "description": "Housing and support services for veterans. Provides transitional housing, case management, and employment assistance."
+  },
+  {
+    "id": 1015,
+    "name": "Baltimore Station",
+    "category": "housing",
+    "address": "140 W West St, Baltimore, MD 21230",
+    "city": "Baltimore, MD",
+    "phone": "410-752-4454",
+    "website": "https://www.baltimorestation.org",
+    "description": "Transitional housing and recovery services for veterans. Offers addiction treatment, job training, and permanent housing assistance."
+  },
+  {
+    "id": 1016,
+    "name": "Beans and Bread",
+    "category": "food",
+    "address": "402 S Bond St, Baltimore, MD 21231",
+    "city": "Baltimore, MD",
+    "phone": "410-732-1892",
+    "website": "https://www.vincentbaltimore.org",
+    "description": "Daily meal service and food assistance. Serves breakfast and lunch, provides groceries, and offers case management."
+  },
+  {
+    "id": 1017,
+    "name": "Franciscan Center",
+    "category": "food",
+    "address": "101 W 23rd St, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-467-5340",
+    "website": "https://www.franciscancenterbaltimore.org",
+    "description": "Daily meal service and food pantry. Provides hot meals, groceries, clothing, and case management services."
+  },
+  {
+    "id": 1018,
+    "name": "Second Shiloh Meal Kitchen & Emergency Food Pantry",
+    "category": "food",
+    "address": "1355 Homestead St, Baltimore, MD 21217",
+    "city": "Baltimore, MD",
+    "phone": "410-342-8000",
+    "website": "",
+    "description": "Meal kitchen and emergency food pantry. Serves hot meals and provides groceries to families in need."
+  },
+  {
+    "id": 1019,
+    "name": "Donald Bentley Food Pantry",
+    "category": "food",
+    "address": "2405 Loch Raven Rd, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-467-4000",
+    "website": "",
+    "description": "Food pantry services for families. Provides groceries, fresh produce, and emergency food assistance."
+  },
+  {
+    "id": 1020,
+    "name": "Maryland Food Bank",
+    "category": "food",
+    "address": "2200 Halethorpe Farms Rd, Baltimore, MD 21227",
+    "city": "Baltimore, MD",
+    "phone": "410-737-8282",
+    "website": "https://www.mdfoodbank.org",
+    "description": "Regional food bank distributing to food pantries and meal programs. Provides food assistance network support."
+  },
+  {
+    "id": 1021,
+    "name": "Our Daily Bread",
+    "category": "food",
+    "address": "725 Fallsway, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-732-1892",
+    "website": "https://www.vincentbaltimore.org",
+    "description": "Daily hot meal service. Serves breakfast and lunch to individuals experiencing homelessness and food insecurity."
+  },
+  {
+    "id": 1022,
+    "name": "Manna House",
+    "category": "food",
+    "address": "435 E 25th St, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-467-3750",
+    "website": "",
+    "description": "Food pantry and meal service. Provides groceries, hot meals, and support services to community members."
+  },
+  {
+    "id": 1023,
+    "name": "St. Wenceslaus Food Pantry",
+    "category": "food",
+    "address": "2111 Ashland Ave, Baltimore, MD 21205",
+    "city": "Baltimore, MD",
+    "phone": "410-342-6000",
+    "website": "",
+    "description": "Weekly food pantry distribution. Provides groceries and fresh produce to families in the neighborhood."
+  },
+  {
+    "id": 1024,
+    "name": "St. Gregory the Great Food Pantry",
+    "category": "food",
+    "address": "1542 N Gilmor St, Baltimore, MD 21217",
+    "city": "Baltimore, MD",
+    "phone": "410-523-1533",
+    "website": "",
+    "description": "Food pantry serving families in West Baltimore. Provides groceries, fresh produce, and emergency food assistance."
+  },
+  {
+    "id": 1025,
+    "name": "St. Vincent de Paul Food Pantry",
+    "category": "food",
+    "address": "120 N Front St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-576-3990",
+    "website": "https://www.vincentbaltimore.org",
+    "description": "Food pantry and meal programs. Provides groceries, hot meals, and support services to individuals and families."
+  },
+  {
+    "id": 1026,
+    "name": "Manna House Soup Kitchen",
+    "category": "food",
+    "address": "435 E 25th St, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-467-3750",
+    "website": "",
+    "description": "Daily soup kitchen serving hot meals. Provides breakfast and lunch to individuals experiencing food insecurity."
+  },
+  {
+    "id": 1027,
+    "name": "St. Bernardine's Food Pantry",
+    "category": "food",
+    "address": "3812 Edmondson Ave, Baltimore, MD 21229",
+    "city": "Baltimore, MD",
+    "phone": "410-233-1180",
+    "website": "",
+    "description": "Food pantry serving families in Southwest Baltimore. Provides groceries and emergency food assistance."
+  },
+  {
+    "id": 1028,
+    "name": "St. Ann's Food Pantry",
+    "category": "food",
+    "address": "528 S Greenmount Ave, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-727-7100",
+    "website": "",
+    "description": "Food pantry and meal service. Provides groceries, hot meals, and support services to community members."
+  },
+  {
+    "id": 1029,
+    "name": "St. James Food Pantry",
+    "category": "food",
+    "address": "1020 W Baltimore St, Baltimore, MD 21223",
+    "city": "Baltimore, MD",
+    "phone": "410-233-1080",
+    "website": "",
+    "description": "Weekly food pantry distribution. Provides groceries and fresh produce to families in need."
+  },
+  {
+    "id": 1030,
+    "name": "St. Ignatius Food Pantry",
+    "category": "food",
+    "address": "740 N Calvert St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-727-3848",
+    "website": "",
+    "description": "Food pantry serving downtown Baltimore. Provides groceries and emergency food assistance to individuals and families."
+  },
+  {
+    "id": 1031,
+    "name": "St. Mary's Food Pantry",
+    "category": "food",
+    "address": "600 N Paca St, Baltimore, MD 21201",
+    "city": "Baltimore, MD",
+    "phone": "410-727-5490",
+    "website": "",
+    "description": "Food pantry and meal service. Provides groceries, hot meals, and support services to community members."
+  },
+  {
+    "id": 1032,
+    "name": "St. Peter Claver Food Pantry",
+    "category": "food",
+    "address": "1546 N Fremont Ave, Baltimore, MD 21217",
+    "city": "Baltimore, MD",
+    "phone": "410-523-2372",
+    "website": "",
+    "description": "Food pantry serving families in West Baltimore. Provides groceries and fresh produce to those in need."
+  },
+  {
+    "id": 1033,
+    "name": "St. Veronica's Food Pantry",
+    "category": "food",
+    "address": "806 Cherry Hill Rd, Baltimore, MD 21225",
+    "city": "Baltimore, MD",
+    "phone": "410-355-7300",
+    "website": "",
+    "description": "Food pantry serving South Baltimore. Provides groceries and emergency food assistance to families."
+  },
+  {
+    "id": 1034,
+    "name": "St. Cecilia's Food Pantry",
+    "category": "food",
+    "address": "3301 Old York Rd, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-467-2320",
+    "website": "",
+    "description": "Food pantry serving Northeast Baltimore. Provides groceries and fresh produce to families in need."
+  },
+  {
+    "id": 1035,
+    "name": "Paul's Place Clothing Marketplace",
+    "category": "clothing",
+    "address": "1118 Ward St, Baltimore, MD 21230",
+    "city": "Baltimore, MD",
+    "phone": "410-625-0775",
+    "website": "https://www.paulsplaceoutreach.org",
+    "description": "Free clothing for community members. Provides seasonal clothing, shoes, and accessories for all ages."
+  },
+  {
+    "id": 1036,
+    "name": "CFUF Clothes Closet",
+    "category": "clothing",
+    "address": "2201 N Monroe St, Baltimore, MD 21217",
+    "city": "Baltimore, MD",
+    "phone": "410-367-5691",
+    "website": "https://www.cfuf.org",
+    "description": "Clothing assistance program for families. Provides free clothing, shoes, and accessories for children and adults."
+  },
+  {
+    "id": 1037,
+    "name": "KDW Cares Clothing Closet",
+    "category": "clothing",
+    "address": "6806 Harford Rd, Baltimore, MD 21234",
+    "city": "Baltimore, MD",
+    "phone": "410-426-6000",
+    "website": "",
+    "description": "Community clothing closet serving Northeast Baltimore. Provides free clothing for all ages."
+  },
+  {
+    "id": 1038,
+    "name": "The Blessing Closet",
+    "category": "clothing",
+    "address": "6000 Radecke Ave, Baltimore, MD 21206",
+    "city": "Baltimore, MD",
+    "phone": "410-426-6000",
+    "website": "",
+    "description": "Free clothing and household items. Provides clothing, shoes, and basic household necessities for families."
+  },
+  {
+    "id": 1039,
+    "name": "Dress for Success Baltimore",
+    "category": "clothing",
+    "address": "250 W Dickman St, Baltimore, MD 21230",
+    "city": "Baltimore, MD",
+    "phone": "410-727-8900",
+    "website": "https://baltimore.dressforsuccess.org",
+    "description": "Professional attire for job interviews and employment. Provides business clothing, career coaching, and job placement support."
+  },
+  {
+    "id": 1040,
+    "name": "St. Vincent de Paul Thrift Store",
+    "category": "clothing",
+    "address": "120 N Front St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-576-3990",
+    "website": "https://www.vincentbaltimore.org",
+    "description": "Thrift store providing affordable clothing and household items. Offers vouchers for free items to those in need."
+  },
+  {
+    "id": 1041,
+    "name": "Franciscan Center Clothing Closet",
+    "category": "clothing",
+    "address": "101 W 23rd St, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-467-5340",
+    "website": "https://www.franciscancenterbaltimore.org",
+    "description": "Free clothing for individuals and families. Provides seasonal clothing, shoes, and accessories."
+  },
+  {
+    "id": 1042,
+    "name": "St. Wenceslaus Clothing Closet",
+    "category": "clothing",
+    "address": "2111 Ashland Ave, Baltimore, MD 21205",
+    "city": "Baltimore, MD",
+    "phone": "410-342-6000",
+    "website": "",
+    "description": "Free clothing for families. Provides clothing, shoes, and accessories for children and adults."
+  },
+  {
+    "id": 1043,
+    "name": "St. Gregory the Great Clothing Closet",
+    "category": "clothing",
+    "address": "1542 N Gilmor St, Baltimore, MD 21217",
+    "city": "Baltimore, MD",
+    "phone": "410-523-1533",
+    "website": "",
+    "description": "Clothing assistance for families in West Baltimore. Provides free clothing for all ages."
+  },
+  {
+    "id": 1044,
+    "name": "St. Bernardine's Clothing Closet",
+    "category": "clothing",
+    "address": "3812 Edmondson Ave, Baltimore, MD 21229",
+    "city": "Baltimore, MD",
+    "phone": "410-233-1180",
+    "website": "",
+    "description": "Free clothing for families in Southwest Baltimore. Provides seasonal clothing and accessories."
+  },
+  {
+    "id": 1045,
+    "name": "St. Ann's Clothing Closet",
+    "category": "clothing",
+    "address": "528 S Greenmount Ave, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-727-7100",
+    "website": "",
+    "description": "Clothing assistance for community members. Provides free clothing, shoes, and accessories."
+  },
+  {
+    "id": 1046,
+    "name": "St. James Clothing Closet",
+    "category": "clothing",
+    "address": "1020 W Baltimore St, Baltimore, MD 21223",
+    "city": "Baltimore, MD",
+    "phone": "410-233-1080",
+    "website": "",
+    "description": "Free clothing for families. Provides clothing and accessories for children and adults."
+  },
+  {
+    "id": 1047,
+    "name": "211 Maryland",
+    "category": "aid",
+    "address": "Statewide Service, Baltimore, MD",
+    "city": "Baltimore, MD",
+    "phone": "211",
+    "website": "https://www.211md.org",
+    "description": "24/7 information and referral service. Connects callers to health and human services, crisis support, and emergency resources."
+  },
+  {
+    "id": 1048,
+    "name": "Baltimore City Department of Social Services",
+    "category": "aid",
+    "address": "1900 N Howard St, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-361-8400",
+    "website": "https://dhr.maryland.gov",
+    "description": "Social services and public assistance programs. Provides SNAP benefits, Medicaid, TANF, and case management services."
+  },
+  {
+    "id": 1049,
+    "name": "Catholic Charities of Baltimore",
+    "category": "aid",
+    "address": "320 Cathedral St, Baltimore, MD 21201",
+    "city": "Baltimore, MD",
+    "phone": "410-547-5490",
+    "website": "https://www.catholiccharities-md.org",
+    "description": "Multi-service organization providing housing, food, employment, and support services. Offers case management and referrals."
+  },
+  {
+    "id": 1050,
+    "name": "United Way of Central Maryland",
+    "category": "aid",
+    "address": "1800 Washington Blvd, Baltimore, MD 21230",
+    "city": "Baltimore, MD",
+    "phone": "410-547-8000",
+    "website": "https://www.uwcm.org",
+    "description": "Community resource hub and information center. Provides referrals to health and human services, financial assistance, and support programs."
+  },
+  {
+    "id": 1051,
+    "name": "Maryland Legal Aid",
+    "category": "aid",
+    "address": "500 E Lexington St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-951-7777",
+    "website": "https://www.mdlab.org",
+    "description": "Free legal services for low-income individuals. Provides assistance with housing, benefits, family law, and consumer issues."
+  },
+  {
+    "id": 1052,
+    "name": "Baltimore Crisis Response",
+    "category": "aid",
+    "address": "1 N Charles St, Baltimore, MD 21201",
+    "city": "Baltimore, MD",
+    "phone": "410-433-5175",
+    "website": "https://www.baltimorecrisisresponse.org",
+    "description": "24/7 crisis intervention and mental health services. Provides mobile crisis teams, crisis stabilization, and referrals."
+  },
+  {
+    "id": 1053,
+    "name": "Healthcare Access Maryland",
+    "category": "aid",
+    "address": "1501 S Clinton St, Baltimore, MD 21224",
+    "city": "Baltimore, MD",
+    "phone": "410-649-0500",
+    "website": "https://www.healthcareaccessmd.org",
+    "description": "Health insurance enrollment and assistance. Helps individuals enroll in Medicaid, Medicare, and marketplace insurance."
+  },
+  {
+    "id": 1054,
+    "name": "Maryland Department of Human Services",
+    "category": "aid",
+    "address": "311 W Saratoga St, Baltimore, MD 21201",
+    "city": "Baltimore, MD",
+    "phone": "410-767-7100",
+    "website": "https://dhs.maryland.gov",
+    "description": "State social services agency. Provides public assistance programs, SNAP benefits, cash assistance, and support services."
+  },
+  {
+    "id": 1055,
+    "name": "Baltimore City Health Department",
+    "category": "aid",
+    "address": "1001 E Fayette St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-396-4398",
+    "website": "https://health.baltimorecity.gov",
+    "description": "Public health services and programs. Provides health screenings, immunizations, family planning, and health education."
+  },
+  {
+    "id": 1056,
+    "name": "Maryland Department of Labor",
+    "category": "aid",
+    "address": "1100 N Eutaw St, Baltimore, MD 21201",
+    "city": "Baltimore, MD",
+    "phone": "410-767-2161",
+    "website": "https://www.dllr.state.md.us",
+    "description": "Employment services and job training programs. Provides unemployment benefits, job search assistance, and workforce development."
+  },
+  {
+    "id": 1057,
+    "name": "Baltimore Community Action Partnership",
+    "category": "aid",
+    "address": "2700 N Charles St, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-366-0600",
+    "website": "https://www.baltimorecap.org",
+    "description": "Community action agency providing emergency assistance, energy assistance, and support services to low-income families."
+  },
+  {
+    "id": 1058,
+    "name": "Maryland Department of Housing and Community Development",
+    "category": "aid",
+    "address": "7800 York Rd, Baltimore, MD 21204",
+    "city": "Baltimore, MD",
+    "phone": "410-514-7000",
+    "website": "https://dhcd.maryland.gov",
+    "description": "Housing assistance and community development programs. Provides rental assistance, homebuyer programs, and housing counseling."
+  },
+  {
+    "id": 1059,
+    "name": "Baltimore City Office of Homeless Services",
+    "category": "aid",
+    "address": "7 E Redwood St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-396-5397",
+    "website": "https://www.baltimorecity.gov",
+    "description": "Coordination of homeless services and housing programs. Provides referrals, case management, and housing placement assistance."
+  },
+  {
+    "id": 1060,
+    "name": "Maryland Department of Veterans Affairs",
+    "category": "aid",
+    "address": "16 Francis St, Annapolis, MD 21401",
+    "city": "Baltimore, MD",
+    "phone": "410-260-3838",
+    "website": "https://veterans.maryland.gov",
+    "description": "Services and benefits for veterans. Provides benefits assistance, housing programs, employment services, and referrals."
+  },
+  {
+    "id": 1061,
+    "name": "Baltimore City Community Action Partnership",
+    "category": "aid",
+    "address": "2700 N Charles St, Baltimore, MD 21218",
+    "city": "Baltimore, MD",
+    "phone": "410-366-0600",
+    "website": "https://www.baltimorecap.org",
+    "description": "Emergency assistance and support services. Provides utility assistance, rental assistance, and case management."
+  },
+  {
+    "id": 1062,
+    "name": "Maryland Energy Assistance Program",
+    "category": "aid",
+    "address": "311 W Saratoga St, Baltimore, MD 21201",
+    "city": "Baltimore, MD",
+    "phone": "410-767-7100",
+    "website": "https://dhs.maryland.gov",
+    "description": "Energy bill assistance for low-income households. Provides financial assistance for heating and cooling costs."
+  },
+  {
+    "id": 1063,
+    "name": "Baltimore City Office of Aging",
+    "category": "aid",
+    "address": "417 E Fayette St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-396-2273",
+    "website": "https://aging.baltimorecity.gov",
+    "description": "Services and programs for older adults. Provides meal programs, transportation, case management, and support services."
+  },
+  {
+    "id": 1064,
+    "name": "Maryland Department of Disabilities",
+    "category": "aid",
+    "address": "217 E Redwood St, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-767-3660",
+    "website": "https://mdod.maryland.gov",
+    "description": "Services and support for individuals with disabilities. Provides information, referrals, and advocacy services."
+  },
+  {
+    "id": 1065,
+    "name": "Baltimore City Public Schools Family Support Center",
+    "category": "aid",
+    "address": "200 E North Ave, Baltimore, MD 21202",
+    "city": "Baltimore, MD",
+    "phone": "410-396-8600",
+    "website": "https://www.baltimorecityschools.org",
+    "description": "Support services for families with school-aged children. Provides resources, referrals, and assistance programs."
+  }
+]
+

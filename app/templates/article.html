@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="article-content">
+    <h1>{{ post.title }}</h1>
+    <div class="article-body">
+        {% set paragraphs = post.body.split('\n\n') %}
+        {% for para in paragraphs %}
+            {% if para.strip() %}
+                {% if para.startswith('**') and para.endswith('**') %}
+                    <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: #333; font-size: 1.1rem; font-weight: 600;">{{ para[2:-2] }}</h3>
+                {% else %}
+                    <p style="margin: 0.75rem 0; line-height: 1.8; white-space: pre-line;">{{ para }}</p>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div style="margin-top: 2rem;">
+        <a href="{{ url_for('news') }}" class="read-more">← Back to News Feed</a>
+    </div>
+</div>
+{% endblock %}
+
